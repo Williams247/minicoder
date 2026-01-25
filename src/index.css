@@ -3,6 +3,12 @@
   margin: 0;
 }
 
+#code-editor-container {
+  width: 100% !important;
+  height: 100dvh !important;
+  display: flex;
+}
+
 #ace-editor {
   width: 100% !important;
   height: 100dvh !important;
