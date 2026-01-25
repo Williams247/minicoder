@@ -11,7 +11,6 @@ pnpm tauri add fs
 pnpm add @tauri-apps/plugin-dialog
 
 ## Add the tauri dialog to rust "Cargo.toml", the file location is "/your-project-name/src-tauri/Cargo.toml":
-
 [dependencies]
 tauri-plugin-dialog = "2"
 
@@ -70,5 +69,24 @@ pub fn run() {
         })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
+}
+```
+
+## Add permissions your dialog module, the location of this file can be found in "/your-project-name/src-tauri/main.json", when you check the file location and it is not there, you can simply create a new main.json file then add the following commands below:
+
+```json
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main-capability",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "dialog:allow-open",
+    "dialog:allow-save",
+    "fs:allow-read-text-file",
+    "fs:allow-write-text-file",
+    "dialog:allow-message"
+  ]
 }
 ```
