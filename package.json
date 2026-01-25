@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tauri-apps/plugin-dialog": "^2.6.0",
+    "@tauri-apps/plugin-fs": "~2.4.5",
     "ace-builds": "^1.43.6",
     "highlight.js": "^11.11.1",
     "react": "^19.2.0",

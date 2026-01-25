@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import AceEditor from "react-ace";
 import hljs from "highlight.js";
 
@@ -10,8 +10,7 @@ import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/mode-css";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/ext-language_tools";
-
-type SupportedMode = "javascript" | "python" | "html" | "css" | "php";
+import { type SupportedMode, type CodeEditorPropTypes } from "./type";
 
 const langMap: Record<string, SupportedMode> = {
   javascript: "javascript",
@@ -23,25 +22,24 @@ const langMap: Record<string, SupportedMode> = {
   css: "css",
 };
 
-export function CodeEditor() {
-  const [code, setCode] = useState("");
+export function CodeEditor(props: CodeEditorPropTypes) {
 
   const mode = useMemo<SupportedMode>(() => {
-    if (code.trim() === "") return "javascript";
-    const detected = hljs.highlightAuto(code);
+    if (props.code.trim() === "") return "javascript";
+    const detected = hljs.highlightAuto(props.code);
     return detected.language && langMap[detected.language]
       ? langMap[detected.language]
       : "javascript";
-  }, [code]);
+  }, [props.code]);
 
   return (
     <AceEditor
       theme="monokai"
       mode={mode}
       fontSize={14}
-      value={code}
+      value={props.code}
       showPrintMargin={false}
-      onChange={(value) => setCode(value)}
+      onChange={(value) => props.setCode(value)}
     />
   );
 }
