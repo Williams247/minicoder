@@ -1,16 +1,16 @@
 # NOTE: BEFORE YOU START ANY DEVELOPMENT WITH THIS SAMPLE PROJECT AND THE README GUIDE, PLEASE LOOK AT THE ("tauri-project-desktop-app")[https://github.com/Williams247/tauri-project-desktop-app] REPO AT GITHUB, LOOK AT THE STEPS THERE, THEN WHEN YOU HAVE DONE IT, PLEASE COME BACK HERE AND TRY THIS OTHER STEPS.
 
 ## Install react-ace text editor:
-pnpm add react-ace ace-builds
+### pnpm add react-ace ace-builds
 
 ## Install highlight.js to enable the text editor to auto detect language:
-pnpm add highlight.js
+### pnpm add highlight.js
 
 ## Install tauri file system library to enable tauri to get access to the file system:
-pnpm tauri add fs
+### pnpm tauri add fs
 
 ## Install tauri app dialog
-pnpm add @tauri-apps/plugin-dialog
+### pnpm add @tauri-apps/plugin-dialog
 
 ## Add the tauri dialog to rust "Cargo.toml", the file location is "/your-project-name/src-tauri/Cargo.toml":
 [dependencies]
@@ -94,3 +94,17 @@ pub fn run() {
 ```
 
 ## Add tailwind css, to do so run the following command below:
+### pnpm add tailwindcss @tailwindcss/vite
+
+### After installation run the command below to install configure tailwind css:
+
+```typescript
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+```
