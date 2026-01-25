@@ -1,5 +1,5 @@
-import { CodeEditor } from "./components/code-editor";
+import { CodeEditorContainer } from "./components/code-editor.container";
 
 export default function App() {
-  return <CodeEditor />;
+  return <CodeEditorContainer />;
 }
