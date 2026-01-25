@@ -9,21 +9,20 @@ export function CodeEditorContainer() {
     "// Select a file to begin...",
   );
 
+  // Open a file
   async function handleOpen() {
     try {
-      // 1. Open a native dialog to pick a text file
       const selected = await open({
-        multiple: false,
+        multiple: false, // Restricts the selection of multiple files
         filters: [
           {
-            name: "Text",
-            extensions: fileExtensionFilters,
+            name: "Text", // File format
+            extensions: fileExtensionFilters, // File extensions that are allowed to be opened
           },
         ],
       });
 
       if (selected) {
-        // 2. Read the file directly as text
         const content = await readTextFile(selected);
         setFileContent(content);
       }
@@ -31,6 +30,8 @@ export function CodeEditorContainer() {
       console.error("Error reading text file:", err);
     }
   }
+
+
 
   return (
     <div className="editor-container">

@@ -1,4 +1,5 @@
 export type SupportedMode =
+  | "text"
   | "html"
   | "css"
   | "javascript"
@@ -15,6 +16,7 @@ export interface CodeEditorPropTypes {
 }
 
 export type FileExtensionFilters = Array<
+  | "txt"
   | "html"
   | "css"
   | "js"

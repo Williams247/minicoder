@@ -1,6 +1,7 @@
 import { type FileExtensionFilters } from "./type";
 
 export const fileExtensionFilters: FileExtensionFilters = [
+  "txt",
   "html",
   "css",
   "js",
