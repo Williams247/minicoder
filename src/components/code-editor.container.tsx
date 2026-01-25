@@ -3,6 +3,7 @@ import { open, save, message } from "@tauri-apps/plugin-dialog"; // Highly recom
 import { useState } from "react";
 import { CodeEditor } from "./code-editor";
 import { fileExtensionFilters } from "./constant";
+import { CodeEditorSidebar } from "./code.sidebar";
 
 export function CodeEditorContainer() {
   const [fileContent, setFileContent] = useState<string>("");
@@ -68,14 +69,22 @@ export function CodeEditorContainer() {
 
   return (
     <div className="editor-container">
-      <button onClick={handleNewFile}>New File</button>
-      <button onClick={handleOpen}>Open File</button>
-      <button onClick={handleWrite}>Save File</button>
-      <CodeEditor
-        code={fileContent}
-        setCode={(code) => {
-          setFileContent(code);
-        }}
+      <CodeEditorSidebar
+        Sidebar={
+          <div>
+            <button onClick={handleNewFile}>New File</button>
+            <button onClick={handleOpen}>Open File</button>
+            <button onClick={handleWrite}>Save File</button>
+          </div>
+        }
+        MainArea={
+          <CodeEditor
+            code={fileContent}
+            setCode={(code) => {
+              setFileContent(code);
+            }}
+          />
+        }
       />
     </div>
   );
