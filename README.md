@@ -1,3 +1,5 @@
+# NOTE: BEFORE YOU START ANY DEVELOPMENT WITH THIS SAMPLE PROJECT AND THE README GUIDE, PLEASE LOOK AT THE ("tauri-project-desktop-app")[https://github.com/Williams247/tauri-project-desktop-app] REPO AT GITHUB, LOOK AT THE STEPS THERE, THEN WHEN YOU HAVE DONE IT, PLEASE COME BACK HERE AND TRY THIS OTHER STEPS.
+
 ## Install react-ace text editor:
 pnpm add react-ace ace-builds
 
@@ -90,3 +92,5 @@ pub fn run() {
   ]
 }
 ```
+
+## Add tailwind css, to do so run the following command below:
