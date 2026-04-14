@@ -1,12 +1,76 @@
 @import "tailwindcss";
 
-* {
-  padding: 0;
+/* VS Code Dark+–inspired tokens */
+:root {
+  --vscode-activityBar-background: #333333;
+  --vscode-activityBar-foreground: #cccccc;
+  --vscode-activityBar-inactiveForeground: #858585;
+  --vscode-activityBar-border: #252526;
+  --vscode-activityBarTop-border: #2b2b2b;
+  --vscode-sideBar-background: #252526;
+  --vscode-sideBar-foreground: #bbbbbb;
+  --vscode-sideBar-border: #2b2b2b;
+  --vscode-sideBarSectionHeader-foreground: #bbbbbb;
+  --vscode-list-hoverBackground: #2a2d2e;
+  --vscode-list-activeSelectionBackground: #37373d;
+  --vscode-editor-background: #1e1e1e;
+  --vscode-editorGroupHeader-tabsBackground: #252526;
+  --vscode-tab-activeBackground: #1e1e1e;
+  --vscode-tab-inactiveBackground: #2d2d2d;
+  --vscode-tab-activeForeground: #ffffff;
+  --vscode-tab-inactiveForeground: #969696;
+  --vscode-tab-activeBorderTop: #0078d4;
+  --vscode-tab-border: #252526;
+  --vscode-statusBar-background: #007acc;
+  --vscode-statusBar-foreground: #ffffff;
+  --vscode-statusBar-border: #007acc;
+  --vscode-titleBar-activeBackground: #3c3c3c;
+  --vscode-titleBar-activeForeground: #cccccc;
+  --vscode-sash-hoverBorder: #474747;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
   margin: 0;
 }
 
-/* Style to make the code editor take up the whole window space */
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe WPC",
+    "Segoe UI",
+    system-ui,
+    "Ubuntu",
+    sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  color: var(--vscode-sideBar-foreground);
+  background: var(--vscode-editor-background);
+}
+
+/* Ace root (`name` defaults to `ace-editor`) */
+.editor-main {
+  min-height: 0;
+  min-width: 0;
+}
+
 #ace-editor {
   width: 100% !important;
-  height: 100dvh !important;
+  height: 100% !important;
+  min-height: 0;
+}
+
+/* Ace scrollbar — closer to VS Code */
+#ace-editor.ace_editor .ace_scrollbar {
+  z-index: 3;
 }

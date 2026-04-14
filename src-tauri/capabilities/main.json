@@ -7,8 +7,11 @@
     "core:default",
     "dialog:allow-open",
     "dialog:allow-save",
+    "dialog:allow-message",
+    "fs:allow-read-dir",
     "fs:allow-read-text-file",
     "fs:allow-write-text-file",
-    "dialog:allow-message"
+    "fs:allow-home-read-recursive",
+    "fs:allow-home-write-recursive"
   ]
 }

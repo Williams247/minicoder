@@ -1,110 +1,50 @@
-# NOTE: BEFORE YOU START ANY DEVELOPMENT WITH THIS SAMPLE PROJECT AND THE README GUIDE, PLEASE LOOK AT THE ("tauri-project-desktop-app")[https://github.com/Williams247/tauri-project-desktop-app] REPO AT GITHUB, LOOK AT THE STEPS THERE, THEN WHEN YOU HAVE DONE IT, PLEASE COME BACK HERE AND TRY THIS OTHER STEPS.
+# minicoder
 
-## Install react-ace text editor:
-### pnpm add react-ace ace-builds
+A small **desktop code editor** inspired by Visual Studio Code, built with **[Tauri 2](https://v2.tauri.app/)**, **React 19**, **Vite**, and **[Ace](https://ace.c9.io/)** via `react-ace`. It runs as a native app on macOS, Windows, and Linux and is meant for editing text and source files in a local folder or standalone files.
 
-## Install highlight.js to enable the text editor to auto detect language:
-### pnpm add highlight.js
+## What it does
 
-## Install tauri file system library to enable tauri to get access to the file system:
-### pnpm tauri add fs
+- **Workbench UI** — Activity bar, sidebar (Explorer / workspace search), tabbed editor, and status bar with line/column, language label, and line count.
+- **Files** — Open files or an entire folder; browse the tree; open multiple **tabs**; save; keyboard shortcuts for new file, open, open folder, save, and close tab.
+- **Editing** — Syntax highlighting for common languages (JavaScript, TypeScript, JSX/TSX, PHP, Python, Rust, HTML, CSS, Markdown, C/C++, and more), with optional language detection via highlight.js when no filename is available.
+- **Workspace search** — After opening a folder, search file names across the project from the sidebar.
+- **PHP diagnostics** — When the [PHP CLI](https://www.php.net/) is on your `PATH`, parse errors are surfaced in the editor using `php -l` (see annotations in the gutter).
 
-## Install tauri app dialog
-### pnpm add @tauri-apps/plugin-dialog
+For step-by-step setup notes used while building this kind of app (dependencies, Tauri plugins, Tailwind), see **[instruction.md](./instruction.md)**.
 
-## Add the tauri dialog to rust "Cargo.toml", the file location is "/your-project-name/src-tauri/Cargo.toml":
-[dependencies]
-tauri-plugin-dialog = "2"
+## Screenshots
 
-## Here's an example below:
+Explorer with a Laravel project open, tabbed editor (`User.php` active), and the Minicoder actions menu (New File, Open File, Open Folder, Save).
 
-```toml
-[package]
-name = "app"
-version = "0.1.0"
-description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
-edition = "2021"
-rust-version = "1.77.2"
+<p align="center">
+  <img src="docs/screenshots/Screenshot_2026-04-14_at_5.26.21_AM-9161b977-933c-4791-b02e-057d1e582d24.png" alt="minicoder — Laravel API folder tree and User.php in the editor" width="780" />
+</p>
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+Environment file editing with multiple tabs (`.env`, `User.php`, `UserFactory.php`).
 
-[lib]
-name = "app_lib"
-crate-type = ["staticlib", "cdylib", "rlib"]
+<p align="center">
+  <img src="docs/screenshots/Screenshot_2026-04-14_at_5.26.29_AM-90e67dfa-64c3-4a01-b94c-ea1c452d261a.png" alt="minicoder — .env file in the editor with sidebar and status bar" width="780" />
+</p>
 
-[build-dependencies]
-tauri-build = { version = "2.5.3", features = [] }
+`UserFactory.php` open with PHP syntax highlighting and the status bar showing language and line count.
 
-[dependencies]
-serde_json = "1.0"
-serde = { version = "1.0", features = ["derive"] }
-log = "0.4"
-tauri = { version = "2.9.5", features = [] }
-tauri-plugin-log = "2"
-tauri-plugin-fs = "2"
-tauri-plugin-dialog = "2"
+<p align="center">
+  <img src="docs/screenshots/Screenshot_2026-04-14_at_5.26.37_AM-064cb013-966f-45ef-b0e0-3de5d4d33063.png" alt="minicoder — UserFactory.php with Laravel factory code" width="780" />
+</p>
+
+## Development
+
+```bash
+pnpm install
+pnpm tauri dev
 ```
 
-## Add the following rust script below in "/your-project-name/src-tauri/src/lib.rs":
+Build a release binary:
 
-```rust
-#[cfg_attr(mobile, tauri::mobile_entry_point)]
-pub fn run() {
-    tauri::Builder::default()
-        // 1. Initialize the File System plugin
-        .plugin(tauri_plugin_fs::init())
-        // 2. Initialize the Dialog plugin (This was missing!)
-        .plugin(tauri_plugin_dialog::init())
-        // 3. Setup other plugins or app logic
-        .setup(|app| {
-            if cfg!(debug_assertions) {
-                app.handle().plugin(
-                    tauri_plugin_log::Builder::default()
-                        .level(log::LevelFilter::Info)
-                        .build(),
-                )?;
-            }
-            Ok(())
-        })
-        .run(tauri::generate_context!())
-        .expect("error while running tauri application");
-}
+```bash
+pnpm tauri build
 ```
 
-## Add permissions your dialog module, the location of this file can be found in "/your-project-name/src-tauri/main.json", when you check the file location and it is not there, you can simply create a new main.json file then add the following commands below:
+## License
 
-```json
-{
-  "$schema": "../gen/schemas/desktop-schema.json",
-  "identifier": "main-capability",
-  "description": "Capability for the main window",
-  "windows": ["main"],
-  "permissions": [
-    "core:default",
-    "dialog:allow-open",
-    "dialog:allow-save",
-    "fs:allow-read-text-file",
-    "fs:allow-write-text-file",
-    "dialog:allow-message"
-  ]
-}
-```
-
-## Add tailwind css, to do so run the following command below:
-### pnpm add tailwindcss @tailwindcss/vite
-
-### After installation run the command below to install configure tailwind css:
-
-```typescript
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-
-export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
-})
-```
+See the repository license file if present; otherwise treat as private or add a license as needed.
