@@ -13,7 +13,7 @@
   --vscode-sideBarSectionHeader-foreground: #bbbbbb;
   --vscode-list-hoverBackground: #2a2d2e;
   --vscode-list-activeSelectionBackground: #37373d;
-  --vscode-editor-background: #1e1e1e;
+  --vscode-editor-background: #171a21;
   --vscode-editorGroupHeader-tabsBackground: #252526;
   --vscode-tab-activeBackground: #1e1e1e;
   --vscode-tab-inactiveBackground: #2d2d2d;
@@ -73,4 +73,46 @@ body {
 /* Ace scrollbar — closer to VS Code */
 #ace-editor.ace_editor .ace_scrollbar {
   z-index: 3;
+}
+
+/* Keep the whole editor pane uniformly dark (not just container chrome). */
+#ace-editor.ace_editor.ace-one-dark,
+#ace-editor.ace_editor.ace-one-dark .ace_gutter,
+#ace-editor.ace_editor.ace-one-dark .ace_scroller,
+#ace-editor.ace_editor.ace-one-dark .ace_marker-layer .ace_active-line {
+  background-color: var(--vscode-editor-background);
+}
+
+/* Brighter syntax colors on top of Ace one_dark background. */
+#ace-editor.ace_editor.ace-one-dark .ace_keyword {
+  color: #c586c0;
+}
+
+#ace-editor.ace_editor.ace-one-dark .ace_storage,
+#ace-editor.ace_editor.ace-one-dark .ace_support.ace_type {
+  color: #569cd6;
+}
+
+#ace-editor.ace_editor.ace-one-dark .ace_entity.ace_name.ace_function,
+#ace-editor.ace_editor.ace-one-dark .ace_support.ace_function {
+  color: #dcdcaa;
+}
+
+#ace-editor.ace_editor.ace-one-dark .ace_string {
+  color: #ce9178;
+}
+
+#ace-editor.ace_editor.ace-one-dark .ace_constant.ace_numeric,
+#ace-editor.ace_editor.ace-one-dark .ace_constant.ace_language,
+#ace-editor.ace_editor.ace-one-dark .ace_constant.ace_character {
+  color: #b5cea8;
+}
+
+#ace-editor.ace_editor.ace-one-dark .ace_comment {
+  color: #7f848e;
+}
+
+#ace-editor.ace_editor.ace-one-dark .ace_variable,
+#ace-editor.ace_editor.ace-one-dark .ace_identifier {
+  color: #9cdcfe;
 }

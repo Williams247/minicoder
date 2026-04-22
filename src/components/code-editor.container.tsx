@@ -175,7 +175,6 @@ export function CodeEditorContainer() {
       const selected = await open({
         directory: true,
         multiple: false,
-        recursive: true,
       });
       if (selected === null || Array.isArray(selected)) return;
       setWorkspaceRoot(selected);
@@ -304,6 +303,7 @@ export function CodeEditorContainer() {
 
   const langLabel = ACE_MODE_LABELS[activeMode] ?? activeMode;
   const folderTitle = workspaceRoot ? fileBasename(workspaceRoot) : null;
+  const productLabel = "minicoder";
 
   return (
     <div className="editor-container h-full min-h-0">
@@ -475,6 +475,7 @@ export function CodeEditorContainer() {
               <span className="hidden opacity-90 lg:inline">LF</span>
             </div>
             <div className="flex shrink-0 items-center gap-4 pl-2">
+              <span className="truncate">{productLabel}</span>
               <span className="truncate">{langLabel}</span>
               <span className="opacity-90">{metrics.totalLines} lines</span>
             </div>

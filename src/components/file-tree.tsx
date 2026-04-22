@@ -1,7 +1,7 @@
 import { readDir, type DirEntry } from "@tauri-apps/plugin-fs";
 import { useCallback, useEffect, useState } from "react";
 import { WORKSPACE_IGNORE_DIR_NAMES } from "./constant";
-import { IconFile, IconFolder } from "./vscode-icons";
+import { IconChevronRight, IconFile, IconFolder } from "./vscode-icons";
 
 type CachedRow = {
   entry: DirEntry;
@@ -145,7 +145,11 @@ function TreeLevel(props: {
                 className="inline-flex w-4 shrink-0 justify-center text-[10px] text-[#858585]"
                 aria-hidden
               >
-                {props.expanded.has(fullPath) ? "▼" : "▶"}
+                <IconChevronRight
+                  className={`h-4 w-4 transition-transform ${
+                    props.expanded.has(fullPath) ? "rotate-90" : ""
+                  }`}
+                />
               </span>
               <IconFolder className="h-4 w-4 shrink-0 text-[#dcb67a]" />
               <span className="min-w-0 truncate">{entry.name}</span>

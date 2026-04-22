@@ -15,22 +15,28 @@ For step-by-step setup notes (dependencies, Tauri plugins, Tailwind), see **[ins
 
 ## Screenshots
 
-Project tree, tabbed editor, and quick actions (New File, Open File, Open Folder, Save).
+Rust workspace open in Explorer with a clean dark editor surface and active tab status.
 
 <p align="center">
-  <img src="docs/screenshots/Screenshot_2026-04-14_at_5.26.21_AM-9161b977-933c-4791-b02e-057d1e582d24.png" alt="minicoder — folder explorer and editor with several open tabs" width="780" />
+  <img src="docs/screenshots/workbench-rust-project.png" alt="minicoder showing a Rust project with src tree and main.rs opened" width="780" />
 </p>
 
-Several files open at once; status bar shows cursor position and language mode.
+Laravel project navigation with nested folders and a PHP controller open in the editor.
 
 <p align="center">
-  <img src="docs/screenshots/Screenshot_2026-04-14_at_5.26.29_AM-90e67dfa-64c3-4a01-b94c-ea1c452d261a.png" alt="minicoder — multiple tabs and sidebar" width="780" />
+  <img src="docs/screenshots/workbench-php-controller.png" alt="minicoder showing Laravel controller code with explorer hierarchy expanded" width="780" />
 </p>
 
-Syntax highlighting and line count in the status bar.
+Next.js TypeScript workspace view with app/public folders and `layout.tsx` highlighted.
 
 <p align="center">
-  <img src="docs/screenshots/Screenshot_2026-04-14_at_5.26.37_AM-064cb013-966f-45ef-b0e0-3de5d4d33063.png" alt="minicoder — source file in the editor" width="780" />
+  <img src="docs/screenshots/workbench-nextjs-layout.png" alt="minicoder showing a Next.js project and layout.tsx in the editor" width="780" />
+</p>
+
+Another Laravel example focused on `UserFactory.php`, showing deep folder browsing and PHP mode in the status bar.
+
+<p align="center">
+  <img src="docs/screenshots/workbench-php-factory.png" alt="minicoder showing UserFactory.php with Laravel project explorer" width="780" />
 </p>
 
 ## Development

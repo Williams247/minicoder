@@ -59,3 +59,24 @@ export function IconFolder({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function IconChevronRight({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden
+    >
+      <path
+        d="M6 4.5L9.5 8L6 11.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
